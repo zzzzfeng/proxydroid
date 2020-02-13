@@ -5,6 +5,7 @@
 - Android代理软件大多不支持认证，而从google play上下载的proxydroid apk有广告，所以去掉广告编译了下
 
 # 步骤
+###########2020/02/13版代码支持gradle编译，使用Android studio即可###########
 源码使用maven编译
 
 - 首先要编译android-sdk-deployer工具下载android相关依赖
