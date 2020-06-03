@@ -1,0 +1,16 @@
+bin/
+gen/
+local.properties
+*.iml
+.idea
+.cxx
+target/
+obj/
+libs/armeabi/redsocks
+libs/armeabi/shadowsocks
+libs/armeabi/shrpx
+gen-external-apklibs/
+classes/
+.gradle
+build/
+app/release
