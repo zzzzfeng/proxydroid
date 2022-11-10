@@ -13,6 +13,17 @@
   openssl x509 -inform PEM -subject_hash_old -in cacert.pem |head -1
   mv cacert.pem <hash>.0
   ```
-- app会导入/data/local/tmp/目录下所有符合格式的证书
+- app会导入/data/local/tmp/目录下所有符合格式的证书（未知bug，app中确实执行成功，但adb shell mount时却未见成功）
+```
+手动操作
+获取con ls -Z /system/etc/security/cacerts | head -n1
+(con = u:object_r:system_security_cacerts_file:s0)
+
+cp -pR /system/etc/security/cacerts /data/local/tmp/
+cp /data/local/tmp/"+yourcertname+" /data/local/tmp/cacerts/
+chmod -R 755 /data/local/tmp/cacerts
+chcon -R "+con+" /data/local/tmp/cacerts
+mount /data/local/tmp/cacerts /system/etc/security/cacerts
+```
 - 代理推荐使用mitmproxy，若使用fiddler，需要执行`prefs set fiddler.network.https.SetCNFromSNI true`开启SNI才行
 - 另外一种可以抓到全局包的方案是使用[VPN模式](https://github.com/raise-isayan/TunProxy)，使用[appstarter](https://github.com/zzzzfeng/appstarter)工具辅助导入证书
