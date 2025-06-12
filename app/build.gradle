@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.google.gms.google-services'
-apply plugin: 'io.fabric'
+//apply plugin: 'com.google.gms.google-services'
+//apply plugin: 'io.fabric'
 
 android {
     compileSdkVersion 29
